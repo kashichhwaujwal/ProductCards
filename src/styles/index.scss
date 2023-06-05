@@ -1,0 +1,30 @@
+@import "./cards.scss";
+@import "./bottomNavBar.scss";
+@import "./products.scss";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  overscroll-behavior-y: contain;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  user-select: none;
+  font-family: Raleway, sans-serif;
+  position: fixed;
+  overflow: hidden;
+}
+
+@media screen and (min-width: 576px) {
+  body {
+    background-color: grey;
+    width: 45%;
+    left: 28%;
+    margin: 0 auto;
+  }
+}

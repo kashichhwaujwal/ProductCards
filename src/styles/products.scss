@@ -1,0 +1,60 @@
+.container {
+  background: white;
+  max-height: 41rem;
+  min-height: 41rem;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+h1 {
+  text-align: center;
+  font-size: 1.3rem;
+  margin: 1rem;
+}
+
+.products {
+  border-bottom: 0.1rem solid black;
+  display: flex;
+  justify-content: flex-start;
+  margin: 0.3rem;
+  width: 99%;
+  max-height: 10rem;
+
+  .products__image {
+    width: 35%;
+    img {
+      width: 100%;
+      max-height: 100%;
+    }
+  }
+
+  .products__body {
+    background-color: white;
+    padding: 0.3rem;
+    width: 65%;
+    overflow-y: scroll;
+    h2 {
+      font-size: 1.2rem;
+    }
+  }
+}
+
+.noProducts {
+  background-color: white;
+  height: 53rem;
+
+  div {
+    position: relative;
+    text-align: center;
+    top: 15rem;
+
+    .noProduct__button {
+      background: rgb(65, 208, 65);
+      border-radius: 1rem;
+      cursor: pointer;
+      height: 2.3rem;
+      margin-top: 0.5rem;
+      width: 30%;
+    }
+  }
+}

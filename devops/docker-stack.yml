@@ -1,0 +1,33 @@
+version: "3.7"
+
+networks:
+  dzangolab-public:
+    external: true
+
+services:
+  app:
+    deploy:
+      labels:
+        - "traefik.docker.network=dzangolab-public"
+        - "traefik.enable=true"
+        - "traefik.http.routers.sandbox-ujwalk-product-cards-http.entrypoints=web"
+        - "traefik.http.routers.sandbox-ujwalk-product-cards-http.middlewares=https-redirect"
+        - "traefik.http.routers.sandbox-ujwalk-product-cards-http.rule=Host(`ujwalk-product-cards.sandbox.dzangohq.org`)"
+        - "traefik.http.routers.sandbox-ujwalk-product-cards-https.entrypoints=websecure"
+        - "traefik.http.routers.sandbox-ujwalk-product-cards-https.rule=Host(`ujwalk-product-cards.sandbox.dzangohq.org`)"
+        - "traefik.http.routers.sandbox-ujwalk-product-cards-https.tls.certresolver=le"
+        - "traefik.http.routers.sandbox-ujwalk-product-cards-https.tls.domains[0].main=ujwalk-product-cards.sandbox.dzangohq.org"
+        - "traefik.http.routers.sandbox-ujwalk-product-cards-https.tls=true"
+        - "traefik.http.services.sandbox-ujwalk-product-cards.loadbalancer.server.port=80"
+      resources:
+        limits:
+          cpus: "0.50"
+          memory: 500M
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+    image: 139549850843.dkr.ecr.ap-southeast-1.amazonaws.com/sandbox/product-cards:0.1.develop-ujwalk
+    networks:
+      - dzangolab-public

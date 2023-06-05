@@ -1,0 +1,18 @@
+.navContainer {
+  bottom: 0rem;
+  background-color: rgb(182, 171, 171);
+  display: flex;
+  justify-content: space-around;
+  position: absolute;
+  padding: 0.5rem;
+  width: 100%;
+  z-index: 1000;
+
+  .navContainer__icons {
+    font-size: 2rem;
+
+    .navContainer__link {
+      color: white;
+    }
+  }
+}
